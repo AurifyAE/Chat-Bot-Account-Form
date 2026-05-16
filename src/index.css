@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary: #6366F1;
-  --primary-hover: #4F46E5;
-  --bg-gradient-start: #F8FAFC;
-  --bg-gradient-end: #EEF2FF;
-  --surface: rgba(255, 255, 255, 0.9);
-  --text: #0F172A;
-  --text-muted: #64748B;
-  --border: #E2E8F0;
-  --error: #EF4444;
-  --success: #10B981;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --bg-color: #F3F4F6;
+  --surface: #FFFFFF;
+  --text: #111827;
+  --text-muted: #6B7280;
+  --border: #D1D5DB;
+  --border-light: #E5E7EB;
+  --error: #DC2626;
+  --success: #059669;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --ring: rgba(99, 102, 241, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --ring: rgba(37, 99, 235, 0.2);
 }
 
 * {
@@ -24,8 +24,8 @@
 }
 
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
   color: var(--text);
   line-height: 1.5;
   min-height: 100vh;
@@ -48,48 +48,44 @@ body {
 
 .card {
   background-color: var(--surface);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
   box-shadow: var(--shadow-lg);
-  padding: 2rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 2.5rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.025em;
   margin-bottom: 0.5rem;
-  background: linear-gradient(to right, #4F46E5, #ec4899);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
 }
 
 .subtitle {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .form-section {
-  background: #ffffff;
-  border-radius: 0.75rem;
+  background: #FFFFFF;
+  border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
 }
 
 .section-title {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text);
-  margin-bottom: 1rem;
+  color: #111827;
+  margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -99,14 +95,14 @@ body {
   content: '';
   height: 1px;
   flex: 1;
-  background: var(--border);
+  background: var(--border-light);
   margin-left: 1rem;
 }
 
 .two-col {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
@@ -123,40 +119,40 @@ body {
 .form-label {
   display: block;
   font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: var(--text);
-  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: #374151;
+  font-size: 0.875rem;
 }
 
 .form-control {
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  padding: 0.625rem 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: 6px;
   font-size: 0.95rem;
   font-family: inherit;
-  transition: all 0.2s ease;
-  background-color: #F8FAFC;
+  transition: all 0.15s ease-in-out;
+  background-color: #FFFFFF;
+  color: #111827;
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  background-color: #FFFFFF;
-  box-shadow: 0 0 0 4px var(--ring);
+  box-shadow: 0 0 0 3px var(--ring);
 }
 
 .form-control::placeholder {
-  color: #94A3B8;
+  color: #9CA3AF;
 }
 
 select.form-control {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1.2em;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
   padding-right: 2.5rem;
 }
 
@@ -164,35 +160,35 @@ select.form-control {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
   font-size: 0.95rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  border-radius: 6px;
+  transition: all 0.15s;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   font-family: inherit;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.5);
 }
 
 .btn-secondary {
-  background-color: #F1F5F9;
-  color: #475569;
+  background-color: #FFFFFF;
+  color: #374151;
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #E2E8F0;
+  background-color: #F9FAFB;
 }
 
 .btn:disabled {
@@ -202,33 +198,135 @@ select.form-control {
   box-shadow: none !important;
 }
 
-/* Phone Input Overrides */
-.PhoneInput {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* react-phone-input-2 Overrides */
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: auto !important;
+  padding: 0.625rem 0.75rem !important;
+  padding-left: 4.5rem !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem !important;
+  font-family: inherit !important;
+  transition: all 0.15s ease-in-out !important;
+  background-color: #FFFFFF !important;
 }
-.PhoneInputCountry {
-  padding: 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background-color: #F8FAFC;
+
+.react-tel-input:focus-within .form-control {
+  outline: none !important;
+  border: 2px solid var(--primary) !important;
+  box-shadow: none !important;
+  padding: 0.625rem 0.75rem !important;
+  padding-left: 4.5rem !important;
 }
-.PhoneInputInput {
-  flex: 1;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-  font-family: inherit;
-  transition: all 0.2s ease;
-  background-color: #F8FAFC;
+
+.react-tel-input .flag-dropdown {
+  border: none !important;
+  background-color: transparent !important;
+  padding-left: 0.5rem !important;
 }
-.PhoneInputInput:focus {
-  outline: none;
-  border-color: var(--primary);
-  background-color: #FFFFFF;
-  box-shadow: 0 0 0 4px var(--ring);
+
+.react-tel-input .selected-flag {
+  width: 3.5rem !important;
+  padding: 0 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.react-tel-input .selected-flag:hover, 
+.react-tel-input .selected-flag:focus {
+  background-color: transparent !important;
+}
+
+.react-tel-input .selected-flag .arrow {
+  border: none !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  margin-left: 6px !important;
+  margin-top: -2px !important;
+}
+
+.react-tel-input .selected-flag .arrow.up {
+  transform: rotate(180deg) !important;
+  border: none !important;
+}
+
+.react-tel-input .country-list {
+  max-height: 280px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--border-light) !important;
+  width: 320px !important;
+  margin-top: 8px !important;
+  overflow-x: hidden !important;
+}
+
+.react-tel-input .search {
+  padding: 10px !important;
+  background: #FFF !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2 !important;
+}
+
+.react-tel-input .search-box {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0.6rem 0.6rem 0.6rem 2.2rem !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  font-size: 0.95rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: 0.6rem center !important;
+  background-size: 1.2rem !important;
+}
+
+.react-tel-input .search-box::placeholder {
+  color: #9CA3AF !important;
+}
+
+.react-tel-input .country-list .country {
+  padding: 0.75rem 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid #F3F4F6 !important;
+}
+
+.react-tel-input .country-list .country:hover {
+  background-color: #F9FAFB !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+  background-color: #F3F4F6 !important;
+}
+
+.react-tel-input .country-list .country .flag {
+  margin-right: 12px !important;
+  margin-top: 0 !important;
+  position: static !important;
+}
+
+.react-tel-input .country-list .country .country-name {
+  font-weight: 600 !important;
+  color: #111827 !important;
+  font-size: 0.95rem !important;
+  flex: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.react-tel-input .country-list .country .dial-code {
+  color: #6B7280 !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  margin-left: 1rem !important;
 }
 
 /* Status Screen */

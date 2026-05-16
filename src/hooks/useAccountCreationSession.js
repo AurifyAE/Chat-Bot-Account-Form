@@ -11,6 +11,7 @@ export const useAccountCreationSession = (sessionId) => {
   const [activeLock, setActiveLock] = useState(null);
   const [metadata, setMetadata] = useState({ accountModes: [], currencies: [], divisions: [] });
   const [expiresAt, setExpiresAt] = useState(null);
+  const [sessionExpiresAt, setSessionExpiresAt] = useState(null);
   const [message, setMessage] = useState("Validating session...");
   const [canSubmit, setCanSubmit] = useState(false);
 
@@ -117,6 +118,7 @@ export const useAccountCreationSession = (sessionId) => {
       }
 
       setAccountCreationSession(statusRes.accountCreationSession);
+      setSessionExpiresAt(statusRes.accountCreationSession.expiresAt || null);
 
       setMessage("Loading session metadata...");
       const metaRes = await getMetadata(sessionId);
@@ -204,6 +206,7 @@ export const useAccountCreationSession = (sessionId) => {
     activeLock,
     metadata,
     expiresAt,
+    sessionExpiresAt,
     message,
     setMessage,
     canSubmit,

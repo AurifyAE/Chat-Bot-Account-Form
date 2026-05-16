@@ -54,7 +54,8 @@ const AccountCreationPage = () => {
     lockStatus,
     setLockStatus,
     metadata,
-    expiresAt,
+    expiresAt, // Use this for the StatusScreen if blocked
+    sessionExpiresAt, // Use this for the active form countdown
     message,
     setMessage,
     canSubmit,
@@ -65,13 +66,19 @@ const AccountCreationPage = () => {
 
   const handleExit = () => {
     manualRelease().then(() => {
-      window.location.href = "about:blank"; // Or another generic page
+      window.close();
+      setTimeout(() => {
+        window.location.href = "about:blank";
+      }, 300);
     });
   };
 
   const handleCancel = () => {
     manualRelease().then(() => {
-      window.location.href = "about:blank"; // Or another generic page
+      window.close();
+      setTimeout(() => {
+        window.location.href = "about:blank";
+      }, 300);
     });
   };
 
@@ -80,7 +87,7 @@ const AccountCreationPage = () => {
       <div className="card">
         {lockStatus === "active" || lockStatus === "submitting" ? (
           <>
-            {expiresAt && <SessionTimer expiresAt={expiresAt} />}
+            {sessionExpiresAt && <SessionTimer expiresAt={sessionExpiresAt} />}
             <AccountCreationForm 
               sessionId={sessionId}
               metadata={metadata}

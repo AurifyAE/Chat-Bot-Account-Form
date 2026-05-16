@@ -43,6 +43,10 @@ export const heartbeatSession = async (sessionId) => {
   });
   return response.json();
 };
+export const checkDuplicateEmail = async (sessionId, email) => {
+  const response = await fetch(`${BACKEND_URL}/api/account-creation/company-accounts/check-email?sessionId=${sessionId}&email=${encodeURIComponent(email)}`);
+  return response.json();
+};
 
 export const submitParty = async (sessionId, payload, file) => {
   const headers = {
@@ -76,7 +80,7 @@ export const submitParty = async (sessionId, payload, file) => {
     body = JSON.stringify(payload);
   }
 
-  const response = await fetch(`${BACKEND_URL}/api/account-creation/parties`, {
+  const response = await fetch(`${BACKEND_URL}/api/account-creation/company-accounts`, {
     method: 'POST',
     headers,
     body
